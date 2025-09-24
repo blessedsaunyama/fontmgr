@@ -1,18 +1,31 @@
 # FontMgr
 
-FontMgr is a tool to manage fonts on Linux systems, designed to simplify font installation, removal, and organization. This repository provides both manual `.deb` packages for Debian-based distributions and instructions to install via our Cloudsmith repository.
+FontMgr is a Linux font management tool designed to simplify font installation, removal, and organization. It works on Debian-based systems, including Kali Linux, Ubuntu, and Debian, and supports installation via a Cloudsmith repository or manual `.deb` packages.
 
 ---
 
 ## Table of Contents
-1. [Installation](#installation)
+
+1. [Features](#features)
+2. [Installation](#installation)
    - [Recommended: Cloudsmith Repository](#recommended-cloudsmith-repository)
    - [Manual `.deb` Installation](#manual-deb-installation)
    - [Direct `dpkg` Installation](#direct-dpkg-installation)
-2. [Usage](#usage)
-3. [Updating FontMgr](#updating-fontmgr)
-4. [Repository Structure](#repository-structure)
-5. [Contact / Support](#contact--support)
+3. [Usage Examples](#usage-examples)
+4. [Updating FontMgr](#updating-fontmgr)
+5. [Repository Structure](#repository-structure)
+6. [Support & Contributions](#support--contributions)
+
+---
+
+## Features
+
+- Install fonts from local files or `.deb` packages
+- Remove installed fonts by name
+- List all installed fonts
+- Update font database
+- Supports multiple versions and offline installations
+- Works on all Debian-based systems
 
 ---
 
@@ -20,120 +33,190 @@ FontMgr is a tool to manage fonts on Linux systems, designed to simplify font in
 
 ### Recommended: Cloudsmith Repository
 
-This method ensures you always get the latest stable version of FontMgr and its dependencies.
+This ensures you always get the latest stable version and proper dependency handling.
 
-1. Add the repository setup script and run it:
+1. Run the Cloudsmith setup script:
 
 ```bash
 curl -1sLf 'https://dl.cloudsmith.io/public/blessed/fontmgr/setup.deb.sh' | sudo -E bash
-Update your package lists:
+````
 
-bash
-Copy code
+2. Update your package lists:
+
+```bash
 sudo apt update
-Install FontMgr:
+```
 
-bash
-Copy code
+3. Install FontMgr:
+
+```bash
 sudo apt install fontmgr
-Verify installation:
+```
 
-bash
-Copy code
+4. Verify installation:
+
+```bash
 fontmgr --version
-Notes:
+```
 
-This method keeps your FontMgr installation up-to-date via apt upgrade.
+**Notes:**
 
-Works on all Debian-based distributions, including Kali Linux, Ubuntu, Debian, and derivatives.
+* Automatic updates are handled via `apt upgrade`.
+* Works for Debian, Ubuntu, Kali Linux, and other derivatives.
 
-Manual .deb Installation
-If you want to manually install a specific version:
+---
 
-Download the .deb package from this repository’s debs/ folder:
+### Manual `.deb` Installation
 
-bash
-Copy code
+1. Download a specific `.deb` version from the repo `debs/` folder:
+
+```bash
 wget https://github.com/blessedsaunyama/fontmgr/raw/main/debs/fontmgr-1.0.0.deb
-Install the package using apt (handles dependencies automatically):
+```
 
-bash
-Copy code
+2. Install the package with `apt` (recommended, handles dependencies automatically):
+
+```bash
 sudo apt install ./fontmgr-1.0.0.deb
-or using dpkg (you may need to fix dependencies manually):
+```
 
-bash
-Copy code
+or with `dpkg`:
+
+```bash
 sudo dpkg -i fontmgr-1.0.0.deb
 sudo apt -f install
-Verify installation:
+```
 
-bash
-Copy code
+3. Verify installation:
+
+```bash
 fontmgr --version
-Direct dpkg Installation (Advanced)
-If you already have a .deb file:
+```
 
-bash
-Copy code
+---
+
+### Direct `dpkg` Installation (Advanced)
+
+For offline installation or local `.deb` files:
+
+```bash
 sudo dpkg -i /path/to/fontmgr-<version>.deb
 sudo apt -f install   # Fix any missing dependencies
-Replace <version> with the version number (e.g., 1.0.0).
+```
 
-Works for offline installations if you distribute the .deb file.
+* Replace `<version>` with the version number (e.g., `1.0.0`).
 
-Usage
-Run the following to see available commands:
+---
 
-bash
-Copy code
+## Usage Examples
+
+Run `fontmgr --help` to see all commands:
+
+```bash
 fontmgr --help
-Example commands:
+```
 
-bash
-Copy code
+### Listing Fonts
+
+```bash
 # List all installed fonts
 fontmgr list
+```
 
-# Install a font from a local file
-fontmgr install /path/to/font.ttf
+### Installing Fonts
 
-# Remove a font by name
+```bash
+# Install a single font from local TTF file
+fontmgr install /home/user/Downloads/OpenSans.ttf
+
+# Install multiple fonts at once
+fontmgr install /home/user/Downloads/*.ttf
+
+# Install a font from a remote URL
+fontmgr install https://example.com/fonts/OpenSans.ttf
+```
+
+### Removing Fonts
+
+```bash
+# Remove a font by exact name
 fontmgr remove "Open Sans"
 
-# Update font database
-fontmgr update
-Updating FontMgr
-If you installed via Cloudsmith repository:
+# Remove multiple fonts
+fontmgr remove "Open Sans" "Roboto"
+```
 
-bash
-Copy code
+### Updating the Font Database
+
+```bash
+fontmgr update
+```
+
+### Advanced Usage
+
+```bash
+# List fonts with detailed information
+fontmgr list --details
+
+# Check if a font is installed
+fontmgr list | grep "Roboto"
+
+# Install fonts system-wide (requires sudo)
+sudo fontmgr install /path/to/fonts/*.ttf
+
+# Dry-run installation to see what would happen
+fontmgr install --dry-run /path/to/fonts/*.ttf
+```
+
+---
+
+## Updating FontMgr
+
+If installed via Cloudsmith repository:
+
+```bash
 sudo apt update
 sudo apt upgrade fontmgr
-For manual .deb installations:
+```
 
-Download the new .deb version from the repo
+For manual `.deb` installations:
 
-Install using sudo apt install ./fontmgr-<new-version>.deb
+* Download the new `.deb` version
+* Install with `sudo apt install ./fontmgr-<new-version>.deb` or `dpkg`
 
-Repository Structure
-bash
-Copy code
+---
+
+## Repository Structure
+
+```
 fontmgr/
 ├── debs/                  # Contains all .deb package versions
 │   ├── fontmgr-1.0.0.deb
 │   └── fontmgr-1.1.0.deb
 ├── README.md              # This file
-└── other-docs-or-files/
-The debs/ folder stores all published versions.
+├── INSTALL.md             # Optional, separate install guide
+└── other-docs-or-scripts/
+```
 
-Users can download specific versions if needed.
+* `debs/` folder stores all released versions.
+* Users can download specific versions if needed.
+* Keep a changelog and update instructions for each version.
 
-Contact / Support
-For issues, suggestions, or contributions:
+---
 
-GitHub Issues: https://github.com/blessedsaunyama/fontmgr/issues
+## Support & Contributions
 
-Email: saunyamajunior@gmail.com
+* GitHub Issues: [https://github.com/blessedsaunyama/fontmgr/issues](https://github.com/blessedsaunyama/fontmgr/issues)
+* Email: [saunyamajunior@gmail.com](mailto:saunyamajunior@gmail.com)
+* Contributions are welcome via pull requests.
+* Star the repo to support the project.
 
-Note: Installing via Cloudsmith repository is recommended for automatic updates and proper dependency handling. Manual .deb installation is available for offline or specific version needs.
+---
+
+**Notes:**
+
+* Cloudsmith repo method is **recommended** for automatic updates and dependency management.
+* Manual `.deb` installation is provided for offline or specific version use cases.
+* Always check `fontmgr --help` for the latest commands and options.
+
+```
