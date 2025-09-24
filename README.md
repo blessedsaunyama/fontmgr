@@ -1,3 +1,6 @@
+Perfect! Here’s a **complete README** for your `fontmgr` project, fully detailed with installation methods, usage examples, and tips. You can save this as `README.md` and push it to your GitHub repository.
+
+````markdown
 # FontMgr
 
 ![FontMgr](https://img.shields.io/badge/fontmgr-1.0.0-blue.svg)  
@@ -77,14 +80,14 @@ fontmgr -d ~/Fonts            # Install fonts from ~/Fonts (non-recursive)
 ### Options
 
 | Option                        | Description                                                                             | Example                                           |                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
 | `-R, --recursive [DIR]`       | Install fonts recursively (default DIR=`.`)                                             | `fontmgr -R ~/Downloads/Fonts`                    |                                                                     |
 | `-d, --dir DIR`               | Install fonts from DIR only (non-recursive)                                             | `fontmgr -d ~/Fonts`                              |                                                                     |
 | `-o, --online [FAMILY...]`    | Install online families. Accepts multiple families or quoted `"Family:Variant,Variant"` | `fontmgr -o Roboto "OpenSans:Bold,Italic"`        |                                                                     |
 | `-u, --url URL`               | Install a font directly from a URL (single file)                                        | `fontmgr -u https://example.com/fonts/MyFont.ttf` |                                                                     |
 | `-r, --remove NAME[:VARIANT]` | Remove a font family or specific variant                                                | `fontmgr -r Roboto:Bold`                          |                                                                     |
 | `--list-sources`              | List configured online sources                                                          | `fontmgr --list-sources`                          |                                                                     |
-| `--add-source NAME TYPE URL`  | Add a new online source (\`type=github direct\`)  |  `fontmgr --add-source MyFonts github https://github.com/user/fonts`      |
+| `--add-source NAME TYPE URL`  | Add a new online source (\`type=github direct\`)                                                   |  `fontmgr --add-source MyFonts github https://github.com/user/fonts`                                        |
 | `--remove-source NAME`        | Remove a configured source by name                                                      | `fontmgr --remove-source MyFonts`                 |                                                                     |
 | `-l, --list`                  | List installed font families                                                            | `fontmgr -l`                                      |                                                                     |
 | `-v, --variants FAMILY`       | List tracked variants for FAMILY                                                        | `fontmgr -v Roboto`                               |                                                                     |
@@ -151,6 +154,4 @@ Contributions, bug reports, and feature requests are welcome!
 * [GitHub Releases](https://github.com/blessedsaunyama/fontmgr/releases)
 * [FontMgr Issues](https://github.com/blessedsaunyama/fontmgr/issues)
 
-```
-Do you want me to do that next?
 ```
