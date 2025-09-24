@@ -54,17 +54,6 @@ If you already have the `.deb` file:
 sudo apt install ./fontmgr-1.0.0.deb
 ```
 
-### 4. Build from Source (Optional)
-
-Clone the repository and build your own `.deb` using `fpm`:
-
-```bash
-git clone https://github.com/blessedsaunyama/fontmgr.git
-cd fontmgr
-fpm -f -s dir -t deb -n fontmgr -v 1.0.0 .
-sudo dpkg -i fontmgr_1.0.0_amd64.deb
-```
-
 ---
 
 ## Usage
