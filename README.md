@@ -1,6 +1,4 @@
-Perfect! Here’s a **complete README** for your `fontmgr` project, fully detailed with installation methods, usage examples, and tips. You can save this as `README.md` and push it to your GitHub repository.
 
-````markdown
 # FontMgr
 
 ![FontMgr](https://img.shields.io/badge/fontmgr-1.0.0-blue.svg)  
