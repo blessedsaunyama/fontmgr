@@ -78,7 +78,7 @@ fontmgr -d ~/Fonts            # Install fonts from ~/Fonts (non-recursive)
 ### Options
 
 | Option                        | Description                                                                             | Example                                           |                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------- |
 | `-R, --recursive [DIR]`       | Install fonts recursively (default DIR=`.`)                                             | `fontmgr -R ~/Downloads/Fonts`                    |                                                                     |
 | `-d, --dir DIR`               | Install fonts from DIR only (non-recursive)                                             | `fontmgr -d ~/Fonts`                              |                                                                     |
 | `-o, --online [FAMILY...]`    | Install online families. Accepts multiple families or quoted `"Family:Variant,Variant"` | `fontmgr -o Roboto "OpenSans:Bold,Italic"`        |                                                                     |
